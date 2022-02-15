@@ -5,13 +5,8 @@ export const loadDevs = (dispatch) => {
     dispatch({ type: types.LOAD_DEV, payload: storage });
 };
 
-export const addDevs = (dispatch) => {
-    localStorage.setItem(
-        'devs',
-        JSON.stringify([
-            { name: 'dev1', id: Date.now() },
-            { name: 'dev2', id: Date.now() },
-        ]),
-    );
+export const addDevs = async (dispatch, values) => {
+    console.log(values.name);
+    localStorage.setItem('devs', JSON.stringify([{ name: values.name, id: Date.now() }]));
     dispatch({ type: types.ADD_DEV });
 };
