@@ -8,8 +8,31 @@
     font-weight: 500;
     font-size: 2.4rem;
     display: inline-block;
-    &-success{
-        background-color: $green;
-        color: #fff;
+    background-color: $green;
+    cursor: pointer;
+    color: #fff;
+    &-edit{
+        background-color: $yellow;
+    }
+    &-delete{
+        background-color: $red;
+    }
+    &-more{
+        padding: 0rem 3.5rem;
+        line-height: 5rem;
+        font-size: 2rem;
+        box-shadow: 0rem 0.4rem 0.5rem $black;
+    }
+    &-edit, &-delete{
+        padding: 0rem 3.5rem;
+        line-height: 4rem;
+        font-size: 20px;
+        color: $black;
+    }
+    &-edit{
+        background-color: $yellow;
+    }
+    &-delete{
+        background-color: $red;
     }
 }

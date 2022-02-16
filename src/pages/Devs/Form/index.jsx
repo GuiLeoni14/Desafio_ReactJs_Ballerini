@@ -1,4 +1,4 @@
-import { AddButton } from '../../../components/Buttons/AddButton';
+import { DefaultButton } from '../../../components/Buttons/DefaultButton';
 import Input from '../../../components/Input';
 import P from 'prop-types';
 import { useState } from 'react';
@@ -24,7 +24,7 @@ export default function Form({ handleSubmit }) {
                 textLabel="Nome:"
                 handleChange={handleOnChange}
             />
-            <AddButton text="Cadastrar" />
+            <DefaultButton text="Cadastrar" />
         </form>
     );
 }

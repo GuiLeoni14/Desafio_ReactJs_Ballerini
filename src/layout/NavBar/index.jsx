@@ -11,9 +11,6 @@ import Search from '../../components/Search';
 import { changeSearch } from '../../context/NavBarContext/actions';
 export default function NavBar() {
     const { showSearch, setShowSearch } = useContext(NavBarContext);
-    useEffect(() => {
-        changeSearch(showSearch, setShowSearch);
-    }, []);
     return (
         <header>
             <Container>
