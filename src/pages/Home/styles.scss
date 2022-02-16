@@ -1,14 +1,26 @@
 @import '../../layout/GlobalVariablesStyles/styles.scss';
 .s_home{
     background-color: $black;
-    padding: 16.7rem 0rem 3.5rem 0rem;
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     .img{
         img{
             position: absolute;
             &:nth-child(1){
+                z-index: 2;
                 bottom: 0;
+            }
+            &:nth-child(2){
+                top: 50%;
+                transform: translate(-50%,-50%);
+            }
+            &:nth-child(3){
+                z-index: 1;
+                bottom: 0.5rem;
             }
         }
     }
@@ -17,9 +29,11 @@
         .main_home{
             width: 100%;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             .text{
+                width: 100%;
+                max-width: 60rem;
                 h1{
                     font-style: normal;
                     font-weight: bold;
@@ -33,6 +47,22 @@
                     font-size: 2.4rem;
                     line-height: 3rem;
                     color: $gray;
+                    margin-top: 1.6rem;
+                }
+                .btn{
+                    margin-top: 6.9rem;
+                    position: relative;
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        bottom: -2rem;
+                        width: 7rem;
+                        height: 0.2rem;
+                        border-radius: 0.5rem;
+                        background-color: $green;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
                 }
             }
             .image{

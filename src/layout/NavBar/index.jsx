@@ -40,11 +40,7 @@ export default function NavBar() {
                         <span>Ballerini Devs</span>
                     </div>
                 </div>
-                {showSearch && (
-                    <div className="search">
-                        <Search placeholder="Buscar" />
-                    </div>
-                )}
+                {showSearch && <Search placeholder="Buscar" />}
             </Container>
         </header>
     );
