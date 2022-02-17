@@ -12,6 +12,7 @@ import SlideDevs from './SlideDevs';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
+import { DefaultButton } from '../../components/Buttons/DefaultButton';
 export default function Devs() {
     const isMounted = useRef(true);
     const {
@@ -41,9 +42,11 @@ export default function Devs() {
     return (
         <div className="s_devs">
             <div className="container">
+                <DefaultButton text="Adicionar Desenvolvedor" customClass="add" />
                 <div className="main_devs">
                     <div className="slide_devs">
                         <Swiper
+                            className="swiper"
                             spaceBetween={10}
                             modules={[Navigation]}
                             navigation
