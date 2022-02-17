@@ -6,7 +6,12 @@ import Form from './Form';
 import { changeSearch } from '../../context/NavBarContext/actions';
 import { NavBarContext } from '../../context/NavBarContext/context';
 import './styles.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import SlideDevs from './SlideDevs';
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
 export default function Devs() {
     const isMounted = useRef(true);
     const {
@@ -37,10 +42,28 @@ export default function Devs() {
         <div className="s_devs">
             <div className="container">
                 <div className="main_devs">
-                    <div className="slide-devs">
-                        <div className="swiper-wrapper">
-                            <SlideDevs />
-                        </div>
+                    <div className="slide_devs">
+                        <Swiper
+                            spaceBetween={10}
+                            modules={[Navigation]}
+                            navigation
+                            slidesPerView={3}
+                            onSlideChange={() => console.log('slide change')}
+                            onSwiper={(swiper) => console.log(swiper)}
+                        >
+                            <SwiperSlide>
+                                <SlideDevs />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <SlideDevs />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <SlideDevs />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <SlideDevs />
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
                 </div>
             </div>

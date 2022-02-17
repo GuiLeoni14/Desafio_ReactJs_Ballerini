@@ -5,7 +5,7 @@ import './styles.scss';
 
 export default function SlideDevs() {
     return (
-        <div className="swiper-slide">
+        <div className="slide">
             <div className="card">
                 <div className="image">
                     <img src="" alt="" />

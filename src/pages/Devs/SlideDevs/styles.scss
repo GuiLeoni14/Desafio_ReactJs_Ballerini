@@ -1,5 +1,5 @@
 @import '../../../layout/GlobalVariablesStyles/styles.scss';
-.swiper-slide{
+.slide{
     width: 100%;
     max-width: 30rem;
     display: flex;
@@ -9,7 +9,7 @@
     .card{
         width: 100%;
         border-radius: 1rem;
-        background-color: $gray;
+        background-color: rgba(249, 249, 249, 0.14);;
         display: flex;
         align-items: center;
         justify-content: center;
