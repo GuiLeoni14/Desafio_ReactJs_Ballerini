@@ -12,11 +12,14 @@ import SlideDevs from './SlideDevs';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
+import MyDialogEdit from './DialogEdit';
 import { DefaultButton } from '../../components/Buttons/DefaultButton';
 import MyDialog from '../../components/Dialog';
 import { data } from '../../context/DevsContext/data';
 export default function Devs() {
     const isMounted = useRef(true);
+    const [openDialogEdit, setOpenDialogEdit] = useState(false);
+    const [dev, setDev] = useState([]);
     const {
         stateDevs: { devs },
         devsDispatch,
@@ -41,6 +44,10 @@ export default function Devs() {
         deleteDevs(devsDispatch, id);
     };
 
+    const dialogEdit = (dev) => {
+        setOpenDialogEdit(!openDialogEdit); // responsavel por mandar os valores de dev, para o form
+        setDev(dev);
+    };
     return (
         <div className="s_devs">
             <div className="container">
@@ -65,6 +72,7 @@ export default function Devs() {
                                         linkedin={dev.linkedin}
                                         deleteDev={deleteDev}
                                         id={dev.id}
+                                        handleOpenDialogEdit={() => dialogEdit(dev)}
                                     />
                                 </SwiperSlide>
                             ))}
@@ -78,6 +86,16 @@ export default function Devs() {
                     titleForm="Adicionar Desenvolvedor"
                     handleSubmitForm={createDevs}
                 />
+                {openDialogEdit && (
+                    <MyDialogEdit
+                        content="form"
+                        typeButton="add-form"
+                        textButton="adicionar"
+                        titleForm="Adicionar Desenvolvedor"
+                        valuesDev={dev}
+                        handleOpenDialogEdit={() => setOpenDialogEdit(!openDialogEdit)}
+                    />
+                )}
             </div>
         </div>
     );

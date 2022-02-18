@@ -3,7 +3,9 @@ import icon_github from '../../../assets/img/github.svg';
 import icon_linkedin from '../../../assets/img/icon_linkedin.svg';
 import './styles.scss';
 import P from 'prop-types';
-export default function SlideDevs({ name, cargo, avatar, github, linkedin, deleteDev, id }) {
+import { useState } from 'react';
+import MyDialogEdit from '../DialogEdit';
+export default function SlideDevs({ name, cargo, avatar, github, linkedin, deleteDev, id, handleOpenDialogEdit }) {
     return (
         <div className="slide">
             <div className="card">
@@ -23,7 +25,7 @@ export default function SlideDevs({ name, cargo, avatar, github, linkedin, delet
                 </div>
             </div>
             <div className="buttons">
-                <DefaultButton customClass="edit" text="Editar" />
+                <DefaultButton customClass="edit" text="Editar" handleClick={handleOpenDialogEdit} />
                 <DefaultButton customClass="delete" text="Deletar" handleClick={() => deleteDev(id)} />
             </div>
         </div>
@@ -38,4 +40,5 @@ SlideDevs.propTypes = {
     linkedin: P.string,
     deleteDev: P.func,
     id: P.string,
+    handleOpenDialogEdit: P.func,
 };
