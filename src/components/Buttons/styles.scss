@@ -23,21 +23,36 @@
         font-size: 2rem;
         box-shadow: 0rem 0.4rem 0.5rem $black;
     }
-    &-edit, &-delete{
+    &-edit, &-delete, &-cancel{
         padding: 0rem 3.5rem;
         line-height: 4rem;
-        font-size: 20px;
+        font-size: 2rem;
         color: $black;
     }
-    &-edit{
+    &-edit-form, &-delete-form, &-cancel-form, &-add-form{
+        line-height: 4rem;
+        font-size: 2rem;
+        color: $black;
+        padding: 0rem 2rem;
+    }
+    &-edit, &-edit-form{
         background-color: $yellow;
     }
-    &-delete{
+    &-delete,  &-delete-form{
         background-color: $red;
     }
     &-add{
         font-size: 1.4rem;
         padding: 0rem 1.9rem;
         line-height: 4rem;
+    }
+    &-add-form{
+        background-color: $green;
+    }
+    &-cancel, &-cancel-form{
+        background-color: #ffff;
+        &:hover, &:focus{
+            background-color: aqua;
+        }
     }
 }

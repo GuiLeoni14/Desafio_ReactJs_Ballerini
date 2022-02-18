@@ -13,6 +13,8 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import { DefaultButton } from '../../components/Buttons/DefaultButton';
+import MyDialog from '../../components/Dialog';
+import { data } from '../../context/DevsContext/data';
 export default function Devs() {
     const isMounted = useRef(true);
     const {
@@ -42,7 +44,6 @@ export default function Devs() {
     return (
         <div className="s_devs">
             <div className="container">
-                <DefaultButton text="Adicionar Desenvolvedor" customClass="add" />
                 <div className="main_devs">
                     <div className="slide_devs">
                         <Swiper
@@ -54,21 +55,29 @@ export default function Devs() {
                             onSlideChange={() => console.log('slide change')}
                             onSwiper={(swiper) => console.log(swiper)}
                         >
-                            <SwiperSlide>
-                                <SlideDevs />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <SlideDevs />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <SlideDevs />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <SlideDevs />
-                            </SwiperSlide>
+                            {devs.map((dev) => (
+                                <SwiperSlide key={dev.id}>
+                                    <SlideDevs
+                                        name={dev.name}
+                                        cargo={data.cargo}
+                                        avatar={dev.avatar}
+                                        github={dev.github}
+                                        linkedin={dev.linkedin}
+                                        deleteDev={deleteDev}
+                                        id={dev.id}
+                                    />
+                                </SwiperSlide>
+                            ))}
                         </Swiper>
                     </div>
                 </div>
+                <MyDialog
+                    content="form"
+                    typeButton="add-form"
+                    textButton="adicionar"
+                    titleForm="Adicionar Desenvolvedor"
+                    handleSubmitForm={createDevs}
+                />
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import P from 'prop-types';
 import { Link } from 'react-router-dom';
 import './styles.scss';
-export function DefaultButton({ text, link, customClass }) {
+export function DefaultButton({ text, link, customClass, type = 'submit', handleClick }) {
     return (
         <>
             {link ? (
@@ -9,15 +9,10 @@ export function DefaultButton({ text, link, customClass }) {
                     {text}
                 </Link>
             ) : (
-                <button type="submit" className={`btn btn-${customClass}`}>
+                <button type={type} className={`btn btn-${customClass}`} onClick={handleClick}>
                     {text}
                 </button>
             )}
         </>
     );
 }
-DefaultButton.propTypes = {
-    text: P.string.isRequired,
-    link: P.string,
-    customClass: P.string,
-};
