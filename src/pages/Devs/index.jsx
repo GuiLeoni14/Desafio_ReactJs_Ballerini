@@ -19,7 +19,9 @@ import { data } from '../../context/DevsContext/data';
 export default function Devs() {
     const isMounted = useRef(true);
     const [openDialogEdit, setOpenDialogEdit] = useState(false);
+    const [openDialogDelete, setOpenDialogDelete] = useState(false);
     const [dev, setDev] = useState([]);
+    const [devDelete, setDevDelete] = useState([]);
     const {
         stateDevs: { devs },
         devsDispatch,
@@ -41,15 +43,21 @@ export default function Devs() {
 
     const deleteDev = (id) => {
         console.log(id);
+        setOpenDialogDelete(!openDialogDelete);
         deleteDevs(devsDispatch, id);
     };
 
     const editDev = (values) => {
         editDevs(devsDispatch, values);
+        setOpenDialogEdit(!openDialogEdit);
     };
     const dialogEdit = (dev) => {
         setOpenDialogEdit(!openDialogEdit); // responsavel por mandar os valores de dev, para o form
         setDev(dev);
+    };
+    const dialogDelete = (devDelete) => {
+        setOpenDialogDelete(!openDialogDelete); // responsavel por mandar os valores de dev, para o form
+        setDevDelete(devDelete.id);
     };
     return (
         <div className="s_devs">
@@ -76,6 +84,7 @@ export default function Devs() {
                                         deleteDev={deleteDev}
                                         id={dev.id}
                                         handleOpenDialogEdit={() => dialogEdit(dev)}
+                                        handleOpenDialogDelete={() => dialogDelete(dev)}
                                     />
                                 </SwiperSlide>
                             ))}
@@ -95,9 +104,19 @@ export default function Devs() {
                         typeButton="edit-form"
                         textButton="Editar"
                         titleForm="Editar Desenvolvedor"
-                        handleSubmitForm={editDev}
+                        handleActionDeleteOrEdit={editDev}
                         valuesDev={dev}
                         handleOpenDialogEdit={() => setOpenDialogEdit(!openDialogEdit)}
+                    />
+                )}
+                {openDialogDelete && (
+                    <MyDialogEdit
+                        typeButton="edit-form"
+                        textButton="Editar"
+                        titleForm="Editar Desenvolvedor"
+                        handleActionDeleteOrEdit={deleteDev}
+                        valuesDev={devDelete}
+                        handleOpenDialogDelete={() => setOpenDialogDelete(!openDialogDelete)}
                     />
                 )}
             </div>

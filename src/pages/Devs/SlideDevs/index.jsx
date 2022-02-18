@@ -5,7 +5,15 @@ import './styles.scss';
 import P from 'prop-types';
 import { useState } from 'react';
 import MyDialogEdit from '../DialogEdit';
-export default function SlideDevs({ name, cargo, avatar, github, linkedin, deleteDev, id, handleOpenDialogEdit }) {
+export default function SlideDevs({
+    name,
+    cargo,
+    avatar,
+    github,
+    linkedin,
+    handleOpenDialogEdit,
+    handleOpenDialogDelete,
+}) {
     return (
         <div className="slide">
             <div className="card">
@@ -26,7 +34,7 @@ export default function SlideDevs({ name, cargo, avatar, github, linkedin, delet
             </div>
             <div className="buttons">
                 <DefaultButton customClass="edit" text="Editar" handleClick={handleOpenDialogEdit} />
-                <DefaultButton customClass="delete" text="Deletar" handleClick={() => deleteDev(id)} />
+                <DefaultButton customClass="delete" text="Deletar" handleClick={handleOpenDialogDelete} />
             </div>
         </div>
     );
@@ -41,4 +49,5 @@ SlideDevs.propTypes = {
     deleteDev: P.func,
     id: P.number,
     handleOpenDialogEdit: P.func,
+    handleOpenDialogDelete: P.func,
 };

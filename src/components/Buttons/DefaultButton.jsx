@@ -16,3 +16,11 @@ export function DefaultButton({ text, link, customClass, type = 'submit', handle
         </>
     );
 }
+
+DefaultButton.propTypes = {
+    text: P.string,
+    link: P.string,
+    customClass: P.string,
+    type: P.string,
+    handleClick: P.func,
+};

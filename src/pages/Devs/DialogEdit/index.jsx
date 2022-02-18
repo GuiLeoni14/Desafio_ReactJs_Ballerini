@@ -4,12 +4,13 @@ import { DefaultButton } from '../../../components/Buttons/DefaultButton';
 import P from 'prop-types';
 import Form from '../Form';
 import { useEffect } from 'react';
+import CardDelete from '../CardDelete';
 export default function MyDialogEdit({
     content,
     typeButton,
     textButton,
     titleForm,
-    handleSubmitForm,
+    handleActionDeleteOrEdit,
     handleOpenDialogEdit,
     valuesDev,
 }) {
@@ -22,13 +23,13 @@ export default function MyDialogEdit({
                             textButton={textButton}
                             typeButton={typeButton}
                             titleForm={titleForm}
-                            handleSubmit={handleSubmitForm}
+                            handleSubmit={handleActionDeleteOrEdit}
                             Close={Dialog.Close}
                             handleOpenDialogEdit={handleOpenDialogEdit}
                             valuesDev={valuesDev}
                         />
                     ) : (
-                        <h1>Deletar</h1>
+                        <CardDelete Close={Dialog.Close} handleDeleteDev={handleActionDeleteOrEdit} id={valuesDev} />
                     )}
                 </Dialog.Content>
             </Dialog.Overlay>
@@ -37,7 +38,7 @@ export default function MyDialogEdit({
 }
 
 MyDialogEdit.propTypes = {
-    handleSubmitForm: P.func,
+    handleActionDeleteOrEdit: P.func,
     content: P.node,
     typeButton: P.string,
     textButton: P.string,
