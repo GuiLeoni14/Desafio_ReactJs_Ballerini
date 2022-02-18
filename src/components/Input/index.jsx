@@ -1,12 +1,21 @@
 import P from 'prop-types';
 import './styles.scss';
 export default function Input({ type, placeholder, value, name, textLabel, handleChange }) {
+    console.log(value);
     return (
         <>
             <label htmlFor={name} className="label">
                 {textLabel}
             </label>
-            <input type={type} placeholder={placeholder} value={value} name={name} id={name} onChange={handleChange} />
+            <input
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                name={name}
+                id={name}
+                onChange={handleChange}
+                required
+            />
         </>
     );
 }

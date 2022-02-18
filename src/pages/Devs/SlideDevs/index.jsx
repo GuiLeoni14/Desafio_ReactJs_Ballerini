@@ -36,9 +36,9 @@ SlideDevs.propTypes = {
     name: P.string,
     cargo: P.string,
     avatar: P.string,
-    github: P.string,
+    github: P.any,
     linkedin: P.string,
     deleteDev: P.func,
-    id: P.string,
+    id: P.number,
     handleOpenDialogEdit: P.func,
 };

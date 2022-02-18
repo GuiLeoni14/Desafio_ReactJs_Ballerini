@@ -3,6 +3,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { DefaultButton } from '../../../components/Buttons/DefaultButton';
 import P from 'prop-types';
 import Form from '../Form';
+import { useEffect } from 'react';
 export default function MyDialogEdit({
     content,
     typeButton,

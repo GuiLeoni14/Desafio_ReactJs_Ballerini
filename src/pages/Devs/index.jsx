@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import DevsProvider from '../../context/DevsContext';
 import { DevsContext } from '../../context/DevsContext/context';
-import { loadDevs, addDevs, deleteDevs } from '../../context/DevsContext/actions';
+import { loadDevs, addDevs, deleteDevs, editDevs } from '../../context/DevsContext/actions';
 import Form from './Form';
 import { changeSearch } from '../../context/NavBarContext/actions';
 import { NavBarContext } from '../../context/NavBarContext/context';
@@ -44,6 +44,9 @@ export default function Devs() {
         deleteDevs(devsDispatch, id);
     };
 
+    const editDev = (values) => {
+        editDevs(devsDispatch, values);
+    };
     const dialogEdit = (dev) => {
         setOpenDialogEdit(!openDialogEdit); // responsavel por mandar os valores de dev, para o form
         setDev(dev);
@@ -89,9 +92,10 @@ export default function Devs() {
                 {openDialogEdit && (
                     <MyDialogEdit
                         content="form"
-                        typeButton="add-form"
-                        textButton="adicionar"
-                        titleForm="Adicionar Desenvolvedor"
+                        typeButton="edit-form"
+                        textButton="Editar"
+                        titleForm="Editar Desenvolvedor"
+                        handleSubmitForm={editDev}
                         valuesDev={dev}
                         handleOpenDialogEdit={() => setOpenDialogEdit(!openDialogEdit)}
                     />

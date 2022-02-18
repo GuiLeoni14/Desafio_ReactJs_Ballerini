@@ -13,9 +13,10 @@ export default function Form({
     valuesDev,
     handleOpenDialogEdit,
 }) {
-    const [values, setValues] = useState([]);
+    const [values, setValues] = useState(valuesDev || {}); // valuesDev tem que vir primeiro
     const handleOnChange = (e) => {
         e.preventDefault();
+        console.log(e.target.value);
         setValues({
             ...values,
             [e.target.name]: e.target.value,
@@ -25,7 +26,6 @@ export default function Form({
         e.preventDefault();
         handleSubmit(values);
     };
-    console.log(valuesDev);
     return (
         <form onSubmit={submit} className="form">
             {titleForm && <h2>{titleForm}</h2>}
@@ -35,36 +35,37 @@ export default function Form({
                     type="text"
                     textLabel="Nome:"
                     handleChange={handleOnChange}
-                    value={valuesDev ? valuesDev.name : ''}
+                    value={values.name ? values.name : ''}
                 />
                 <Input
                     name="avatar"
                     type="text"
                     textLabel="Avatar:"
                     handleChange={handleOnChange}
-                    value={valuesDev ? valuesDev.avatar : ''}
+                    value={values.avatar ? values.avatar : ''}
                 />
                 <Input
                     name="cargo"
                     type="text"
                     textLabel="Cargo:"
                     handleChange={handleOnChange}
-                    value={valuesDev ? valuesDev.cargo : ''}
+                    value={values.cargo ? values.cargo : ''}
                 />
                 <Input
                     name="github"
                     type="text"
                     textLabel="GitHub:"
                     handleChange={handleOnChange}
-                    value={valuesDev ? valuesDev.github : ''}
+                    value={values.github ? values.github : ''}
                 />
                 <Input
                     name="linkedin"
                     type="text"
                     textLabel="Linkedin:"
                     handleChange={handleOnChange}
-                    value={valuesDev ? valuesDev.linkedin : ''}
+                    value={values.linkedin ? values.linkedin : ''}
                 />
+                {values.id && <Input type="hidden" value={valuesDev.id} />}
                 <div className="button">
                     <Close>
                         <DefaultButton customClass="cancel-form" text="Cancelar" handleClick={handleOpenDialogEdit} />
@@ -82,6 +83,6 @@ Form.propTypes = {
     textButton: P.string,
     titleForm: P.string,
     valuesDev: P.object,
-    Close: P.node,
+    Close: P.any,
     handleOpenDialogEdit: P.func,
 };
