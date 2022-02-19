@@ -6,7 +6,7 @@ import blob1 from '../../assets/img/blob1.svg';
 import blob2 from '../../assets/img/blob2.svg';
 import blob3 from '../../assets/img/blob3.svg';
 import './styles.scss';
-import { AddButton } from '../../components/Buttons/AddButton';
+import { DefaultButton } from '../../components/Buttons/DefaultButton';
 export default function Home() {
     const theContext = useContext(NavBarContext);
     console.log(theContext);
@@ -25,7 +25,7 @@ export default function Home() {
                             Nao importa se front ou back end, fazer networking e muito importante. Faça parte da maior
                             comunidade de desenvolvedores brasileiros.
                         </p>
-                        <AddButton text="Entre agora" />
+                        <DefaultButton text="Entre agora" link="/devs" />
                     </div>
                     <div className="image">
                         <img src={programer} alt="" />

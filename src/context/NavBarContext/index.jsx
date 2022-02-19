@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { data } from './data';
 import { NavBarContext } from './context';
 import P from 'prop-types';
+import { reducer } from './reducer';
 export default function NavBarProvider({ children }) {
-    const [showSearch, setShowSearch] = useState(data);
-    return <NavBarContext.Provider value={{ showSearch, setShowSearch }}>{children}</NavBarContext.Provider>;
+    const [stateSearch, searchDispatch] = useReducer(reducer, data);
+    return <NavBarContext.Provider value={{ stateSearch, searchDispatch }}>{children}</NavBarContext.Provider>;
 }
 
 NavBarProvider.propTypes = {

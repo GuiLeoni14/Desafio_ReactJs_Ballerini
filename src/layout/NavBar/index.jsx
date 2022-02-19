@@ -8,12 +8,23 @@ import icon_logo from '../../assets/img/logo.svg';
 import { useContext, useEffect } from 'react';
 import { NavBarContext } from '../../context/NavBarContext/context';
 import Search from '../../components/Search';
-import { changeSearch } from '../../context/NavBarContext/actions';
+import { changeSearch, devSearch } from '../../context/NavBarContext/actions';
+import { DevsContext } from '../../context/DevsContext/context';
 export default function NavBar() {
-    const { showSearch, setShowSearch } = useContext(NavBarContext);
-    useEffect(() => {
-        changeSearch(showSearch, setShowSearch);
-    }, []);
+    const {
+        stateSearch: { visible, devResultSearch },
+        searchDispatch,
+    } = useContext(NavBarContext);
+    const {
+        stateDevs: { devs },
+        devsDispatch,
+    } = useContext(DevsContext);
+    const searchDevs = (e) => {
+        devSearch(
+            searchDispatch,
+            devs.filter((item) => item.name.includes(e.target.value)),
+        );
+    };
     return (
         <header>
             <Container>
@@ -40,7 +51,7 @@ export default function NavBar() {
                         <span>Ballerini Devs</span>
                     </div>
                 </div>
-                {showSearch && <Search placeholder="Buscar" />}
+                {visible && <Search placeholder="Buscar" handleChange={searchDevs} />}
             </Container>
         </header>
     );

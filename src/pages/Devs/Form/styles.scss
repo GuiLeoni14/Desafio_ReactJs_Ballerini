@@ -1,0 +1,47 @@
+.form{
+    padding: 3.4rem 0rem;
+    h2{
+        font-family: 'Maven Pro', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 3.2rem;
+        line-height: 4.1rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #FFFFFF
+    }
+    .fields{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0rem 7rem;
+        input{
+            width: 100%;
+            padding: 1rem;
+            background: #FFFFFF;
+            color: #000;
+            box-shadow: inset 0px 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+        }
+        label{
+            font-family: 'Maven Pro', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 2.2rem;
+            line-height: 2.6rem;
+            margin-bottom: 1.4rem;
+            color: #FFF;
+            &:not(:first-child){
+                margin-top: 2rem;
+            }
+        }
+        .button {
+            width: 100%;
+            margin-top: 5.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

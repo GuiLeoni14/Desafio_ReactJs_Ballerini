@@ -1,1 +1,4 @@
-export const data = false;
+export const data = {
+    visible: false,
+    devResultSearch: [],
+};

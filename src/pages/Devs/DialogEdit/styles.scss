@@ -1,0 +1,18 @@
+
+.overlay{
+    position: fixed;
+    z-index: 20222;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    background-color: rgba(52, 51, 51, 1);;
+    width: 46rem;
+    border-radius: 1rem;
+}
