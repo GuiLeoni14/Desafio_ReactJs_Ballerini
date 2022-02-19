@@ -12,6 +12,7 @@ export default function Form({
     Close,
     valuesDev,
     handleOpenDialogEdit,
+    setMessage,
 }) {
     const [values, setValues] = useState(valuesDev || {}); // valuesDev tem que vir primeiro
     const handleOnChange = (e) => {
@@ -21,9 +22,11 @@ export default function Form({
             ...values,
             [e.target.name]: e.target.value,
         });
+        setMessage('');
     };
     const submit = (e) => {
         e.preventDefault();
+        setMessage({ text: 'Item criado com sucesso', type: 'success' });
         handleSubmit(values);
     };
     return (
@@ -85,4 +88,5 @@ Form.propTypes = {
     valuesDev: P.object,
     Close: P.any,
     handleOpenDialogEdit: P.func,
+    setMessage: P.func,
 };

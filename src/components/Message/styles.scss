@@ -1,0 +1,26 @@
+.message{
+    width: 60%;
+    position: absolute;
+    left: 50%;
+    top: 15rem;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    padding: 1rem;
+    border: 0.1rem solid #000;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    z-index: 2045;
+}
+
+.message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #c3c6cb;
+}

@@ -10,6 +10,7 @@
     display: inline-block;
     background-color: $green;
     cursor: pointer;
+    transition: all .3s;
     color: #fff;
     &-edit{
         background-color: $yellow;
@@ -51,8 +52,8 @@
     }
     &-cancel, &-cancel-form{
         background-color: #ffff;
-        &:hover, &:focus{
-            background-color: aqua;
-        }
+    }
+    &:hover, &:focus{
+        opacity: 0.5;
     }
 }

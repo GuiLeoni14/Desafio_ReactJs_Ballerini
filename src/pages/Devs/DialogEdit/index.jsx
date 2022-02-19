@@ -12,6 +12,8 @@ export default function MyDialogEdit({
     titleForm,
     handleActionDeleteOrEdit,
     handleOpenDialogEdit,
+    handleOpenDialogDelete,
+    setMessage,
     valuesDev,
 }) {
     return (
@@ -25,11 +27,18 @@ export default function MyDialogEdit({
                             titleForm={titleForm}
                             handleSubmit={handleActionDeleteOrEdit}
                             Close={Dialog.Close}
+                            setMessage={setMessage}
                             handleOpenDialogEdit={handleOpenDialogEdit}
                             valuesDev={valuesDev}
                         />
                     ) : (
-                        <CardDelete Close={Dialog.Close} handleDeleteDev={handleActionDeleteOrEdit} id={valuesDev} />
+                        <CardDelete
+                            Close={Dialog.Close}
+                            handleDeleteDev={handleActionDeleteOrEdit}
+                            handleOpenDialogDelete={handleOpenDialogDelete}
+                            setMessage={setMessage}
+                            id={valuesDev}
+                        />
                     )}
                 </Dialog.Content>
             </Dialog.Overlay>
@@ -44,5 +53,7 @@ MyDialogEdit.propTypes = {
     textButton: P.string,
     titleForm: P.string,
     handleOpenDialogEdit: P.func,
+    handleOpenDialogDelete: P.func,
     valuesDev: P.object,
+    setMessage: P.func,
 };
