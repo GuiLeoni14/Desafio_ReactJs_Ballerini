@@ -1,7 +1,7 @@
 import './styles.scss';
 import P from 'prop-types';
 import { useEffect, useState } from 'react';
-export default function Message({ type, textMessage }) {
+export default function Message({ type, textMessage, setMessage }) {
     const [visible, setVisible] = useState(false);
     useEffect(() => {
         if (!textMessage) {
@@ -11,6 +11,7 @@ export default function Message({ type, textMessage }) {
         setVisible(true);
         const time = setTimeout(() => {
             setVisible(false);
+            setMessage('');
         }, 3000);
 
         return () => clearTimeout(time);
@@ -29,4 +30,5 @@ export default function Message({ type, textMessage }) {
 Message.propTypes = {
     type: P.string,
     textMessage: P.string,
+    setMessage: P.func,
 };

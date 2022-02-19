@@ -26,8 +26,8 @@ export default function Form({
     };
     const submit = (e) => {
         e.preventDefault();
-        setMessage({ text: 'Item criado com sucesso', type: 'success' });
         handleSubmit(values);
+        setMessage({ text: 'Ação realizada com sucesso', type: 'success' });
     };
     return (
         <form onSubmit={submit} className="form">

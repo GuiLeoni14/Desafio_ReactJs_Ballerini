@@ -20,10 +20,12 @@ export default function NavBar() {
         devsDispatch,
     } = useContext(DevsContext);
     const searchDevs = (e) => {
-        devSearch(
-            searchDispatch,
-            devs.filter((item) => item.name.includes(e.target.value)),
-        );
+        if (devs) {
+            devSearch(
+                searchDispatch,
+                devs.filter((item) => item.name.includes(e.target.value)),
+            );
+        }
     };
     return (
         <header>

@@ -24,7 +24,7 @@ export default function Devs() {
     const [devDelete, setDevDelete] = useState([]);
     const [message, setMessage] = useState({});
     const {
-        stateDevs: { devs },
+        stateDevs: { devs, error },
         devsDispatch,
     } = useContext(DevsContext);
     const {
@@ -58,18 +58,27 @@ export default function Devs() {
     const dialogEdit = (dev) => {
         setOpenDialogEdit(!openDialogEdit); // responsavel por mandar os valores de dev, para o form
         setDev(dev);
-        setMessage('');
+        //setMessage('');
     };
     const dialogDelete = (devDelete) => {
         setOpenDialogDelete(!openDialogDelete); // responsavel por mandar os valores de dev, para o form
         setDevDelete(devDelete.id);
-        setMessage('');
+        //setMessage('');
     };
     console.log(devResultSearch.length);
     return (
         <div className="s_devs">
             <div className="container">
-                {message && <Message textMessage={message.text} type={message.type} />}
+                {message &&
+                    (error ? (
+                        <Message
+                            textMessage="Tivemos um problema ao realizar essa ação"
+                            type="error"
+                            setMessage={setMessage}
+                        />
+                    ) : (
+                        <Message textMessage={message.text} type={message.type} setMessage={setMessage} />
+                    ))}
                 <div className="main_devs">
                     <div className="slide_devs">
                         <Swiper
