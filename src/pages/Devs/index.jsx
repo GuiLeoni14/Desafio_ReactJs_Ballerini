@@ -102,6 +102,7 @@ export default function Devs() {
                                     <h1>Sem resultados</h1>
                                 )
                             ) : (
+                                devs &&
                                 devs.map((dev) => (
                                     <SwiperSlide key={dev.id}>
                                         <SlideDevs
