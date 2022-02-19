@@ -1,0 +1,59 @@
+@import '../../layout/GlobalVariablesStyles/styles.scss';
+.s_devs{
+    background-color: $black;
+    .container{
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 10rem;
+        .btn-add{
+            position: absolute;
+            top: 12rem;
+            right: 1rem;
+        }
+        .main_devs{
+            width: 100%;
+            .slide_devs{
+                width: 100%;
+                position: relative;
+                .swiper{
+                    padding: 4rem;
+                    .swiper-button-prev {
+                        background-image: url('../../assets/img/arrowleft.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                        width: 5.8rem;
+                        height: 5.8rem;
+                        left: 0rem;
+                        &::after{
+                            display: none;
+                        }
+                    }
+                    .swiper-button-next {
+                        background-image: url('../../assets/img/arrowright.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                        width: 5.8rem;
+                        height: 5.8rem;
+                        right: 0;
+                        &::after{
+                            display: none;
+                        }
+                    }
+                    .swiper-slide{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .swiper-wrapper{
+                        width: 100%;
+                        max-width: 50rem;
+                    }
+                }
+            }
+        }
+    }
+}
