@@ -33,17 +33,21 @@ export default function NavBar() {
                 <div className="text">
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="https://www.linkedin.com/in/guileoni14/" target="_blank" rel="noreferrer">
                                 <img src={icon_linkedin} alt="" />
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a
+                                href="https://www.facebook.com/profile.php?id=100008991276235"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <img src={icon_facebook} alt="" />
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="https://discord.gg/ballerini" target="_blank" rel="noreferrer">
                                 <img src={icon_discord} alt="" />
                             </a>
                         </li>
