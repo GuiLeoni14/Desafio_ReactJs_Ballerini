@@ -11,6 +11,9 @@
             position: absolute;
             top: 10rem;
             right: 1rem;
+            @media(max-height: 480px){
+                top: 12rem;
+            }
         }
         .main_devs{
             width: 100%;
