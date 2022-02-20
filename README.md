@@ -5,7 +5,7 @@ Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de recriar uma
 
 ## Objetivo:
 + Desenvolver uma aplicação em React.js replicando uma interface feita no figma(com todas as funcionalidades propostas).
-+ Aprofundar meus conhecimentos e conhecimentos em Reactjs.
++ Aprofundar meus conhecimentos e conceitos em Reactjs.
 + Controle do LocalStore(gravar/pegar dados) do navegador.
 
 ## Aprendizado
