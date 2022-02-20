@@ -17,14 +17,17 @@ import { DefaultButton } from '../../components/Buttons/DefaultButton';
 import MyDialog from '../../components/Dialog';
 import { data } from '../../context/DevsContext/data';
 import Message from '../../components/Message';
+import no_results from '../../assets/img/noresults.gif';
 export default function Devs() {
     const [openDialogEdit, setOpenDialogEdit] = useState(false);
     const [openDialogDelete, setOpenDialogDelete] = useState(false);
+    const [openDialogViewMore, setOpenDialogViewMore] = useState(false);
     const [dev, setDev] = useState([]);
     const [devDelete, setDevDelete] = useState([]);
+    const [devViewMore, setDevViewMore] = useState([]);
     const [message, setMessage] = useState({});
     const {
-        stateDevs: { devs },
+        stateDevs: { devs, error },
         devsDispatch,
     } = useContext(DevsContext);
     const {
@@ -58,26 +61,48 @@ export default function Devs() {
     const dialogEdit = (dev) => {
         setOpenDialogEdit(!openDialogEdit); // responsavel por mandar os valores de dev, para o form
         setDev(dev);
-        setMessage('');
+        //setMessage('');
     };
     const dialogDelete = (devDelete) => {
         setOpenDialogDelete(!openDialogDelete); // responsavel por mandar os valores de dev, para o form
         setDevDelete(devDelete.id);
-        setMessage('');
+        //setMessage('');
+    };
+    const dialogViewMore = (dev) => {
+        setOpenDialogViewMore(!openDialogViewMore);
+        setDevViewMore(dev);
     };
     console.log(devResultSearch.length);
     return (
         <div className="s_devs">
             <div className="container">
-                {message && <Message textMessage={message.text} type={message.type} />}
+                {message &&
+                    (error ? (
+                        <Message
+                            textMessage="Tivemos um problema ao realizar essa ação"
+                            type="error"
+                            setMessage={setMessage}
+                        />
+                    ) : (
+                        <Message textMessage={message.text} type={message.type} setMessage={setMessage} />
+                    ))}
                 <div className="main_devs">
                     <div className="slide_devs">
                         <Swiper
                             className="swiper"
-                            spaceBetween={10}
+                            spaceBetween={40}
+                            breakpoints={{
+                                1080: {
+                                    spaceBetween: 10,
+                                    slidesPerView: 3,
+                                },
+                                750: {
+                                    slidesPerView: 2,
+                                },
+                            }}
                             modules={[Navigation]}
                             navigation
-                            slidesPerView={3}
+                            slidesPerView={1}
                             onSlideChange={() => console.log('slide change')}
                             onSwiper={(swiper) => console.log(swiper)}
                         >
@@ -95,11 +120,15 @@ export default function Devs() {
                                                 id={dev.id}
                                                 handleOpenDialogEdit={() => dialogEdit(dev)}
                                                 handleOpenDialogDelete={() => dialogDelete(dev)}
+                                                handleOpenDialogViewMore={() => dialogViewMore(dev)}
                                             />
                                         </SwiperSlide>
                                     ))
                                 ) : (
-                                    <h1>Sem resultados</h1>
+                                    <div className="card_no_results">
+                                        <img src={no_results} alt="" />
+                                        <h1>Sem resultados</h1>
+                                    </div>
                                 )
                             ) : (
                                 devs &&
@@ -115,6 +144,7 @@ export default function Devs() {
                                             id={dev.id}
                                             handleOpenDialogEdit={() => dialogEdit(dev)}
                                             handleOpenDialogDelete={() => dialogDelete(dev)}
+                                            handleOpenDialogViewMore={() => dialogViewMore(dev)}
                                         />
                                     </SwiperSlide>
                                 ))
@@ -144,6 +174,7 @@ export default function Devs() {
                 )}
                 {openDialogDelete && (
                     <MyDialogEdit
+                        content="delete"
                         typeButton="edit-form"
                         textButton="Editar"
                         titleForm="Editar Desenvolvedor"
@@ -151,6 +182,17 @@ export default function Devs() {
                         valuesDev={devDelete}
                         setMessage={setMessage}
                         handleOpenDialogDelete={() => setOpenDialogDelete(!openDialogDelete)}
+                    />
+                )}
+                {openDialogViewMore && (
+                    <MyDialogEdit
+                        content="more"
+                        typeButton="edit-form"
+                        textButton="Editar"
+                        titleForm="Editar Desenvolvedor"
+                        setMessage={setMessage}
+                        valuesDev={devViewMore}
+                        handleOpenDialogViewMore={() => setOpenDialogViewMore(!openDialogViewMore)}
                     />
                 )}
             </div>

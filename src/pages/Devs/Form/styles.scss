@@ -44,4 +44,10 @@
             justify-content: space-between;
         }
     }
+    @media(max-width: 500px){
+        padding: 1rem 0rem;
+        .fields{
+            padding: 0rem 2rem;
+        }
+    }
 }

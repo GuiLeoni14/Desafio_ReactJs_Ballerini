@@ -5,6 +5,7 @@ import P from 'prop-types';
 import Form from '../Form';
 import { useEffect } from 'react';
 import CardDelete from '../CardDelete';
+import CardViewMore from '../CardViewMore';
 export default function MyDialogEdit({
     content,
     typeButton,
@@ -13,6 +14,7 @@ export default function MyDialogEdit({
     handleActionDeleteOrEdit,
     handleOpenDialogEdit,
     handleOpenDialogDelete,
+    handleOpenDialogViewMore,
     setMessage,
     valuesDev,
 }) {
@@ -20,7 +22,7 @@ export default function MyDialogEdit({
         <Dialog.Root defaultOpen={true}>
             <Dialog.Overlay className="overlay">
                 <Dialog.Content className="content">
-                    {content == 'form' ? (
+                    {content == 'form' && (
                         <Form
                             textButton={textButton}
                             typeButton={typeButton}
@@ -31,13 +33,21 @@ export default function MyDialogEdit({
                             handleOpenDialogEdit={handleOpenDialogEdit}
                             valuesDev={valuesDev}
                         />
-                    ) : (
+                    )}
+                    {content == 'delete' && (
                         <CardDelete
                             Close={Dialog.Close}
                             handleDeleteDev={handleActionDeleteOrEdit}
                             handleOpenDialogDelete={handleOpenDialogDelete}
                             setMessage={setMessage}
                             id={valuesDev}
+                        />
+                    )}
+                    {content == 'more' && (
+                        <CardViewMore
+                            handleOpenDialogViewMore={handleOpenDialogViewMore}
+                            valuesDev={valuesDev}
+                            Close={Dialog.Close}
                         />
                     )}
                 </Dialog.Content>
@@ -54,6 +64,7 @@ MyDialogEdit.propTypes = {
     titleForm: P.string,
     handleOpenDialogEdit: P.func,
     handleOpenDialogDelete: P.func,
+    handleOpenDialogViewMore: P.func,
     valuesDev: P.object,
     setMessage: P.func,
 };

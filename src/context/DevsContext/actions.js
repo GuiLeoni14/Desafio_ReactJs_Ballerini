@@ -1,47 +1,80 @@
 import * as types from './types';
 export const loadDevs = (dispatch) => {
-    console.log('Carregando devs');
-    const storage = JSON.parse(localStorage.getItem('devs'));
-    dispatch({ type: types.LOAD_DEV, payload: storage });
+    try {
+        const storage = JSON.parse(localStorage.getItem('devs'));
+        dispatch({ type: types.LOAD_DEV, payload: storage });
+    } catch {
+        dispatch({ type: types.ERROR_DEV });
+    }
 };
 
 export const addDevs = async (dispatch, values) => {
-    const data = await getStatusForGitHub(values.github);
-    const beforeStorage = JSON.parse(localStorage?.getItem('devs'));
-    localStorage.setItem(
-        'devs',
-        JSON.stringify([
-            ...beforeStorage,
-            {
-                name: values.name,
-                cargo: values.cargo,
-                github: data.html_url,
-                avatar: data.avatar_url,
-                linkedin: values.linkedin,
-                id: Date.now(),
-            },
-        ]),
-    );
-    loadDevs(dispatch);
-    dispatch({ type: types.ADD_DEV });
+    try {
+        const data = await getStatusForGitHub(values.github);
+        const beforeStorage = JSON.parse(localStorage?.getItem('devs'));
+        if (beforeStorage) {
+            localStorage.setItem(
+                'devs',
+                JSON.stringify([
+                    ...beforeStorage,
+                    {
+                        name: values.name,
+                        cargo: values.cargo,
+                        github: data.html_url,
+                        avatar: data.avatar_url,
+                        linkedin: values.linkedin,
+                        id: Date.now(),
+                    },
+                ]),
+            );
+        } else {
+            localStorage.setItem(
+                'devs',
+                JSON.stringify([
+                    {
+                        name: values.name,
+                        cargo: values.cargo,
+                        github: data.html_url,
+                        avatar: data.avatar_url,
+                        linkedin: values.linkedin,
+                        bio: data.bio,
+                        location: data.location,
+                        id: Date.now(),
+                    },
+                ]),
+            );
+        }
+        loadDevs(dispatch);
+        dispatch({ type: types.ADD_DEV });
+    } catch {
+        dispatch({ type: types.ERROR_DEV });
+    }
 };
 
 export const deleteDevs = (dispatch, id) => {
-    const beforeStorage = JSON.parse(localStorage.getItem('devs'));
-    const afterDevs = beforeStorage.filter((dev) => dev.id != id);
-    localStorage.setItem('devs', JSON.stringify(afterDevs));
-    loadDevs(dispatch);
-    dispatch({ type: types.DELETE_DEV, payload: afterDevs });
+    try {
+        const beforeStorage = JSON.parse(localStorage.getItem('devs'));
+        const afterDevs = beforeStorage.filter((dev) => dev.id != id);
+        localStorage.setItem('devs', JSON.stringify(afterDevs));
+        loadDevs(dispatch);
+        dispatch({ type: types.DELETE_DEV, payload: afterDevs });
+    } catch {
+        dispatch({ type: types.ERROR_DEV });
+    }
 };
 
 export const editDevs = (dispatch, values) => {
-    const beforeStorage = JSON.parse(localStorage.getItem('devs'));
-    const newStorage = beforeStorage.filter((item) => item.id != values.id);
-    localStorage.setItem('devs', JSON.stringify([...newStorage, values]));
-    loadDevs(dispatch);
-    const afterDevs = JSON.parse(localStorage.getItem('devs'));
-    console.log(values);
-    dispatch({ type: types.DELETE_DEV, payload: afterDevs });
+    try {
+        const beforeStorage = JSON.parse(localStorage.getItem('devs'));
+        const newStorage = beforeStorage.filter((item) => item.id != values.id);
+        localStorage.setItem('devs', JSON.stringify([...newStorage, values]));
+        loadDevs(dispatch);
+        const afterDevs = JSON.parse(localStorage.getItem('devs'));
+        console.log(values);
+        dispatch({ type: types.DELETE_DEV, payload: afterDevs });
+    } catch {
+        dispatch({ type: types.ERROR_DEV });
+    }
 };
 export const getStatusForGitHub = async (userName) => {
     console.log(userName);

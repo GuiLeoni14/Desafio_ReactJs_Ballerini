@@ -12,7 +12,11 @@
     justify-content: center;
 }
 .content{
-    background-color: rgba(52, 51, 51, 1);;
-    width: 46rem;
+    background-color: rgba(52, 51, 51, 1);
+    width: 100%;
+    max-width: 46rem;
     border-radius: 1rem;
+    @media (max-width: 500px) {
+        max-width: 40rem;
+    }
 }
