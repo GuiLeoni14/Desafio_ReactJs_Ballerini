@@ -1,5 +1,5 @@
 # Projeto-Desafio-Reactjs-Ballerini
-Desafio proposto na comunidade da Rafaela Ballerini, como objetivo de recriar uma aplicação do figma com ReactJs.
+Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de recriar uma aplicação do figma com ReactJs.
 + Confira o projeto aqui: https://guileoni-desafio-reactjs.netlify.app
 > Status: Completed ⚠️
 
