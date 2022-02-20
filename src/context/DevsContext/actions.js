@@ -12,7 +12,6 @@ export const addDevs = async (dispatch, values) => {
     try {
         const data = await getStatusForGitHub(values.github);
         if (data.message) {
-            console.log('esotou no erro');
             dispatch({ type: types.ERROR_DEV });
             return;
         }
