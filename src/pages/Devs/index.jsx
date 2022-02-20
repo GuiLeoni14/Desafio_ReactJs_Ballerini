@@ -90,10 +90,19 @@ export default function Devs() {
                     <div className="slide_devs">
                         <Swiper
                             className="swiper"
-                            spaceBetween={10}
+                            spaceBetween={40}
+                            breakpoints={{
+                                1080: {
+                                    spaceBetween: 10,
+                                    slidesPerView: 3,
+                                },
+                                750: {
+                                    slidesPerView: 2,
+                                },
+                            }}
                             modules={[Navigation]}
                             navigation
-                            slidesPerView={3}
+                            slidesPerView={1}
                             onSlideChange={() => console.log('slide change')}
                             onSwiper={(swiper) => console.log(swiper)}
                         >

@@ -16,3 +16,8 @@ html{
 section{
     width: 100%;
 }
+@media(max-width: 350px){
+    html{
+        font-size: 50%;
+    }
+}
