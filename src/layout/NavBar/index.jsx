@@ -23,7 +23,7 @@ export default function NavBar() {
         if (devs) {
             devSearch(
                 searchDispatch,
-                devs.filter((item) => item.name.includes(e.target.value)),
+                devs.filter((item) => item.name.toLowerCase().includes(e.target.value.toLowerCase())),
             );
         }
     };

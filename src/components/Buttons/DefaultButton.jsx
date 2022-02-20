@@ -5,9 +5,9 @@ export function DefaultButton({ text, link, customClass, type = 'submit', handle
     return (
         <>
             {link ? (
-                <Link to="/devs" className="btn">
+                <a href={link} target="blank" className={`btn btn-${customClass}`}>
                     {text}
-                </Link>
+                </a>
             ) : (
                 <button type={type} className={`btn btn-${customClass}`} onClick={handleClick}>
                     {text}

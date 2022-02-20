@@ -5,7 +5,7 @@ import P from 'prop-types';
 import Form from '../../pages/Devs/Form';
 export default function MyDialog({ content, typeButton, textButton, titleForm, handleSubmitForm, setMessage }) {
     return (
-        <Dialog.Root open={console.log('oooooopa')}>
+        <Dialog.Root>
             <Dialog.Trigger>
                 <DefaultButton text="Adicionar Desenvolvedor" customClass="add" />
             </Dialog.Trigger>

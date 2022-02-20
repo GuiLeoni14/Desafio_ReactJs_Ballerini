@@ -17,11 +17,14 @@ import { DefaultButton } from '../../components/Buttons/DefaultButton';
 import MyDialog from '../../components/Dialog';
 import { data } from '../../context/DevsContext/data';
 import Message from '../../components/Message';
+import no_results from '../../assets/img/noresults.gif';
 export default function Devs() {
     const [openDialogEdit, setOpenDialogEdit] = useState(false);
     const [openDialogDelete, setOpenDialogDelete] = useState(false);
+    const [openDialogViewMore, setOpenDialogViewMore] = useState(false);
     const [dev, setDev] = useState([]);
     const [devDelete, setDevDelete] = useState([]);
+    const [devViewMore, setDevViewMore] = useState([]);
     const [message, setMessage] = useState({});
     const {
         stateDevs: { devs, error },
@@ -65,6 +68,10 @@ export default function Devs() {
         setDevDelete(devDelete.id);
         //setMessage('');
     };
+    const dialogViewMore = (dev) => {
+        setOpenDialogViewMore(!openDialogViewMore);
+        setDevViewMore(dev);
+    };
     console.log(devResultSearch.length);
     return (
         <div className="s_devs">
@@ -104,11 +111,15 @@ export default function Devs() {
                                                 id={dev.id}
                                                 handleOpenDialogEdit={() => dialogEdit(dev)}
                                                 handleOpenDialogDelete={() => dialogDelete(dev)}
+                                                handleOpenDialogViewMore={() => dialogViewMore(dev)}
                                             />
                                         </SwiperSlide>
                                     ))
                                 ) : (
-                                    <h1>Sem resultados</h1>
+                                    <div className="card_no_results">
+                                        <img src={no_results} alt="" />
+                                        <h1>Sem resultados</h1>
+                                    </div>
                                 )
                             ) : (
                                 devs &&
@@ -124,6 +135,7 @@ export default function Devs() {
                                             id={dev.id}
                                             handleOpenDialogEdit={() => dialogEdit(dev)}
                                             handleOpenDialogDelete={() => dialogDelete(dev)}
+                                            handleOpenDialogViewMore={() => dialogViewMore(dev)}
                                         />
                                     </SwiperSlide>
                                 ))
@@ -153,6 +165,7 @@ export default function Devs() {
                 )}
                 {openDialogDelete && (
                     <MyDialogEdit
+                        content="delete"
                         typeButton="edit-form"
                         textButton="Editar"
                         titleForm="Editar Desenvolvedor"
@@ -160,6 +173,17 @@ export default function Devs() {
                         valuesDev={devDelete}
                         setMessage={setMessage}
                         handleOpenDialogDelete={() => setOpenDialogDelete(!openDialogDelete)}
+                    />
+                )}
+                {openDialogViewMore && (
+                    <MyDialogEdit
+                        content="more"
+                        typeButton="edit-form"
+                        textButton="Editar"
+                        titleForm="Editar Desenvolvedor"
+                        setMessage={setMessage}
+                        valuesDev={devViewMore}
+                        handleOpenDialogViewMore={() => setOpenDialogViewMore(!openDialogViewMore)}
                     />
                 )}
             </div>

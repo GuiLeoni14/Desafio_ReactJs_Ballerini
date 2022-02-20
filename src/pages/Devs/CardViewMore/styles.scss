@@ -1,0 +1,42 @@
+.card_view_more{
+    width: 100%;
+    padding-bottom: 2rem;
+    .main_view_more{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .img{
+            width: 100%;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+        h4{
+            margin-top: 4rem;
+            font-family: 'Maven Pro', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 2.5rem;
+            line-height: 3rem;
+            color: #FFFFFF;
+        }
+        .icons{
+            margin: 2rem 0rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            img{
+                width: 5rem;
+                height: 5rem;
+            }
+        }
+        .buttons{
+            display: flex;
+            button{
+                margin-right: 2rem;
+            }
+        }
+    }
+}

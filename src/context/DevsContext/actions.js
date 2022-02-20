@@ -37,6 +37,8 @@ export const addDevs = async (dispatch, values) => {
                         github: data.html_url,
                         avatar: data.avatar_url,
                         linkedin: values.linkedin,
+                        bio: data.bio,
+                        location: data.location,
                         id: Date.now(),
                     },
                 ]),
