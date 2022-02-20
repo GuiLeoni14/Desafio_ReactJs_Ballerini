@@ -27,13 +27,24 @@
             }
         }
         h4{
-            margin-top: 4rem;
+            padding-top: 4rem;
             font-family: 'Maven Pro', sans-serif;
             font-style: normal;
             font-weight: 500;
             font-size: 2.5rem;
             line-height: 3rem;
+            position: relative;
             color: #FFFFFF;
+            &::after{
+                content: '';
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 12.5rem;
+                height: 0.2rem;
+                position: absolute;
+                top: 1.4rem;
+                background-color: $green;
+            }
         }
         span{
             font-family: 'Maven Pro', sans-serif;
