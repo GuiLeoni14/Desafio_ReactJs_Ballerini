@@ -12,15 +12,16 @@
     margin-bottom: 2rem;
     border-radius: 0.5rem;
     z-index: 2045;
+    span{
+        color: #000;
+    }
 }
 
 .message.success {
-    color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
 }
 .message.error {
-    color: #721c24;
     background-color: #f8d7da;
     border-color: #c3c6cb;
 }

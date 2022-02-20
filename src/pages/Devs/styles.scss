@@ -52,8 +52,22 @@
                         width: 100%;
                         max-width: 50rem;
                     }
+                    @media(max-width: 400px) {
+                        padding: 0rem;
+                    }
                 }
             }
+            .card_no_results{
+                text-align: center;
+                padding-bottom: 20rem;
+            }
+        }
+        @media(max-width: 350px){
+            padding-bottom: 1rem;
+            padding-top: 18rem;
+        }
+        @media(max-height: 768px){
+            padding-bottom: 1rem;
         }
     }
 }

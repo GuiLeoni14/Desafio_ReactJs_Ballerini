@@ -13,6 +13,7 @@ export default function SlideDevs({
     linkedin,
     handleOpenDialogEdit,
     handleOpenDialogDelete,
+    handleOpenDialogViewMore,
 }) {
     return (
         <div className="slide">
@@ -29,7 +30,7 @@ export default function SlideDevs({
                     <a href={`https://www.linkedin.com/in/${linkedin}`}>
                         <img src={icon_linkedin} alt="" />
                     </a>
-                    <DefaultButton text="Ver mais" customClass="more" />
+                    <DefaultButton text="Ver mais" customClass="more" handleClick={handleOpenDialogViewMore} />
                 </div>
             </div>
             <div className="buttons">
@@ -50,4 +51,5 @@ SlideDevs.propTypes = {
     id: P.number,
     handleOpenDialogEdit: P.func,
     handleOpenDialogDelete: P.func,
+    handleOpenDialogViewMore: P.func,
 };
