@@ -20,10 +20,10 @@ export default function Input({ type, placeholder, value, name, textLabel, handl
 }
 
 Input.propTypes = {
-    type: P.string.isRequired,
+    type: P.string,
     placeholder: P.string,
     value: P.any,
-    name: P.string.isRequired,
-    textLabel: P.string.isRequired,
-    handleChange: P.func.isRequired,
+    name: P.string,
+    textLabel: P.string,
+    handleChange: P.func,
 };

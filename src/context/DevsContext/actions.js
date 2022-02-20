@@ -11,6 +11,11 @@ export const loadDevs = (dispatch) => {
 export const addDevs = async (dispatch, values) => {
     try {
         const data = await getStatusForGitHub(values.github);
+        if (data.message) {
+            console.log('esotou no erro');
+            dispatch({ type: types.ERROR_DEV });
+            return;
+        }
         const beforeStorage = JSON.parse(localStorage?.getItem('devs'));
         if (beforeStorage) {
             localStorage.setItem(
@@ -70,14 +75,12 @@ export const editDevs = (dispatch, values) => {
         localStorage.setItem('devs', JSON.stringify([...newStorage, values]));
         loadDevs(dispatch);
         const afterDevs = JSON.parse(localStorage.getItem('devs'));
-        console.log(values);
         dispatch({ type: types.DELETE_DEV, payload: afterDevs });
     } catch {
         dispatch({ type: types.ERROR_DEV });
     }
 };
 export const getStatusForGitHub = async (userName) => {
-    console.log(userName);
     return fetch(`https://api.github.com/users/${userName}`)
         .then((resp) => resp.json())
         .then((data) => data);
