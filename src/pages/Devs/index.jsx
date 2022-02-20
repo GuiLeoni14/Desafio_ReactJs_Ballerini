@@ -108,7 +108,7 @@ export default function Devs() {
                                         <SwiperSlide key={dev.id}>
                                             <SlideDevs
                                                 name={dev.name}
-                                                cargo={data.cargo}
+                                                cargo={dev.cargo}
                                                 avatar={dev.avatar}
                                                 github={dev.github}
                                                 linkedin={dev.linkedin}
@@ -132,7 +132,7 @@ export default function Devs() {
                                     <SwiperSlide key={dev.id}>
                                         <SlideDevs
                                             name={dev.name}
-                                            cargo={data.cargo}
+                                            cargo={dev.cargo}
                                             avatar={dev.avatar}
                                             github={dev.github}
                                             linkedin={dev.linkedin}
