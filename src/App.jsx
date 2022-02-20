@@ -10,8 +10,8 @@ function App() {
     return (
         <DevsProvider>
             <NavBarProvider>
-                <NavBar />
                 <Router>
+                    <NavBar />
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/devs" element={<Devs />} />
