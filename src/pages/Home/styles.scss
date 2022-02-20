@@ -67,10 +67,28 @@
             }
             .image{
                 width: 100%;
+                @media(max-width: 600px){
+                    img{
+                        width: 100%;
+                        max-width: 50rem;
+                    }
+                }
             }
         }
     }
-    .img{
-
+    @media(max-width: 1000px) {
+        .container{
+            .main_home{
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .image{
+                    margin-top: 4rem;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
     }
 }
