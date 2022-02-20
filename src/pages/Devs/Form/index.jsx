@@ -56,14 +56,14 @@ export default function Form({
                 <Input
                     name="github"
                     type="text"
-                    textLabel="GitHub:"
+                    textLabel="GitHub(user name):"
                     handleChange={handleOnChange}
                     value={values.github ? values.github : ''}
                 />
                 <Input
                     name="linkedin"
                     type="text"
-                    textLabel="Linkedin:"
+                    textLabel="Linkedin(user name):"
                     handleChange={handleOnChange}
                     value={values.linkedin ? values.linkedin : ''}
                 />
