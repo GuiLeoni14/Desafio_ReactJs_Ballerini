@@ -6,7 +6,12 @@ import './index.css';
 import DevsProvider from './context/DevsContext';
 import NavBar from './layout/NavBar';
 import NavBarProvider from './context/NavBarContext';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function App() {
+    AOS.init({
+        once: false,
+    });
     return (
         <DevsProvider>
             <NavBarProvider>

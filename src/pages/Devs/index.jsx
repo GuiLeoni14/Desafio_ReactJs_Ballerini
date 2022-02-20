@@ -49,7 +49,6 @@ export default function Devs() {
     };
 
     const deleteDev = (id) => {
-        console.log(id);
         setOpenDialogDelete(!openDialogDelete);
         deleteDevs(devsDispatch, id);
     };
@@ -72,7 +71,6 @@ export default function Devs() {
         setOpenDialogViewMore(!openDialogViewMore);
         setDevViewMore(dev);
     };
-    console.log(devResultSearch.length);
     return (
         <div className="s_devs">
             <div className="container">
@@ -87,7 +85,7 @@ export default function Devs() {
                         <Message textMessage={message.text} type={message.type} setMessage={setMessage} />
                     ))}
                 <div className="main_devs">
-                    <div className="slide_devs">
+                    <div className="slide_devs" data-aos="flip-up">
                         <Swiper
                             className="swiper"
                             spaceBetween={40}
@@ -103,8 +101,6 @@ export default function Devs() {
                             modules={[Navigation]}
                             navigation
                             slidesPerView={1}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
                         >
                             {devResultSearch.length > 0 ? (
                                 devResultSearch[0].name !== 'sem' ? (

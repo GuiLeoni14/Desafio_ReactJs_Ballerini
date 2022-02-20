@@ -28,7 +28,7 @@ export default function NavBar() {
         }
     };
     return (
-        <header>
+        <header data-aos="fade-down">
             <Container>
                 <div className="text">
                     <ul>

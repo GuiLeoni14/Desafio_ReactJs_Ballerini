@@ -9,7 +9,6 @@ import './styles.scss';
 import { DefaultButton } from '../../components/Buttons/DefaultButton';
 export default function Home() {
     const theContext = useContext(NavBarContext);
-    console.log(theContext);
     return (
         <div className="s_home">
             <div className="img">
@@ -19,7 +18,7 @@ export default function Home() {
             </div>
             <Container>
                 <div className="main_home">
-                    <div className="text">
+                    <div className="text" data-aos="fade-right">
                         <h1>O maior banco de devs do Brasil</h1>
                         <p>
                             Nao importa se front ou back end, fazer networking e muito importante. Faça parte da maior
@@ -27,7 +26,7 @@ export default function Home() {
                         </p>
                         <DefaultButton text="Entre agora" link="/devs" />
                     </div>
-                    <div className="image">
+                    <div className="image" data-aos="fade-left">
                         <img src={programer} alt="" />
                     </div>
                 </div>

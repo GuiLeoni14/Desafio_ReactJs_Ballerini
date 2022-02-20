@@ -3,7 +3,7 @@ import './styles.scss';
 import P from 'prop-types';
 export default function CardDelete({ handleDeleteDev, handleOpenDialogDelete, Close, id, setMessage }) {
     return (
-        <div className="card-delete">
+        <div className="card-delete" data-aos="fade-up">
             <h2>Deletar Desenvolvedor</h2>
             <p>Tem certeza que deseja deletar este desenvolvedor?</p>
             <div className="buttons">

@@ -17,7 +17,6 @@ export default function Form({
     const [values, setValues] = useState(valuesDev || {}); // valuesDev tem que vir primeiro
     const handleOnChange = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
         setValues({
             ...values,
             [e.target.name]: e.target.value,
@@ -30,7 +29,7 @@ export default function Form({
         setMessage({ text: 'Ação realizada com sucesso', type: 'success' });
     };
     return (
-        <form onSubmit={submit} className="form">
+        <form onSubmit={submit} className="form" data-aos="fade-up">
             {titleForm && <h2>{titleForm}</h2>}
             <div className="fields">
                 <Input
