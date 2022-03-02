@@ -10,7 +10,6 @@ import { DefaultButton } from '../../components/Buttons/DefaultButton';
 import { removeSearch } from '../../context/NavBarContext/actions';
 export default function Home() {
     const { stateSearch: visible, searchDispatch } = useContext(NavBarContext);
-    console.log(visible);
     useEffect(() => {
         removeSearch(searchDispatch);
     }, []);
