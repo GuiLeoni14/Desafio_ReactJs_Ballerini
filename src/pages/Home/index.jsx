@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { NavBarContext } from '../../context/NavBarContext/context';
 import Container from '../../layout/Container';
 import programer from '../../assets/img/programador.png';
@@ -7,8 +7,13 @@ import blob2 from '../../assets/img/blob2.svg';
 import blob3 from '../../assets/img/blob3.svg';
 import './styles.scss';
 import { DefaultButton } from '../../components/Buttons/DefaultButton';
+import { removeSearch } from '../../context/NavBarContext/actions';
 export default function Home() {
-    const theContext = useContext(NavBarContext);
+    const { stateSearch: visible, searchDispatch } = useContext(NavBarContext);
+    console.log(visible);
+    useEffect(() => {
+        removeSearch(searchDispatch);
+    }, []);
     return (
         <div className="s_home">
             <div className="img">
